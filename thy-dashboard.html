@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THY Interactive Timetable — DSA301 Part 3</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    :root {
+      --thy-red: #c8102e;
+      --thy-blue: #1e5aa8;
+      --thy-amber: #d4880f;
+      --bg: #f4f5f7;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --border: #dde1e6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      background: linear-gradient(135deg, var(--thy-red), #8b0a1f);
+      color: #fff;
+      padding: 1rem 1.5rem 1.1rem;
+    }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.35rem; font-weight: 700; }
+    header p { margin: 0; font-size: 0.88rem; opacity: 0.92; max-width: 52rem; }
+    .mantra {
+      margin-top: 0.55rem;
+      font-size: 0.8rem;
+      background: rgba(255,255,255,0.12);
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      display: inline-block;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr 300px;
+      gap: 0;
+      min-height: calc(100vh - 88px);
+    }
+    @media (max-width: 1100px) {
+      .layout { grid-template-columns: 1fr; }
+      aside.filters { border-right: none; border-bottom: 1px solid var(--border); }
+      aside.detail { border-left: none; border-top: 1px solid var(--border); }
+    }
+    aside {
+      background: var(--card);
+      padding: 1rem 1.1rem;
+      border-right: 1px solid var(--border);
+    }
+    aside.detail { border-right: none; border-left: 1px solid var(--border); }
+    aside h2 {
+      margin: 0 0 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 0.65rem 0 0.25rem;
+    }
+    select, input[type="range"] { width: 100%; }
+    select {
+      padding: 0.45rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.88rem;
+    }
+    .range-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .btn-row { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    button {
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.82rem;
+    }
+    button.primary {
+      background: var(--thy-red);
+      color: #fff;
+      border-color: var(--thy-red);
+    }
+    main { padding: 1rem; overflow: auto; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 0.85rem;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
+    }
+    .stat strong { display: block; font-size: 1.4rem; color: var(--thy-red); }
+    .stat span { font-size: 0.75rem; color: var(--muted); }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+    }
+    .panel-head {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      background: #fafbfc;
+    }
+    #map { width: 100%; height: 380px; }
+    #timeline { width: 100%; min-height: 220px; }
+    .detail-empty {
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding: 0.5rem 0;
+    }
+    .detail-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+      color: var(--thy-red);
+    }
+    .detail-card dl { margin: 0; font-size: 0.85rem; }
+    .detail-card dt {
+      font-weight: 600;
+      color: var(--muted);
+      margin-top: 0.45rem;
+    }
+    .detail-card dd { margin: 0.1rem 0 0; }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .badge.intl { background: #e8f0fa; color: var(--thy-blue); }
+    .badge.dom { background: #fef3e0; color: #9a6208; }
+    .route-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .route-list li {
+      padding: 0.4rem 0.5rem;
+      border-radius: 5px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .route-list li:hover { background: #f0f2f5; }
+    .route-list li.active {
+      border-color: var(--thy-red);
+      background: #fff5f6;
+    }
+    footer.note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding: 0.5rem 1rem 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Turkish Airlines — Interactive Timetable Dashboard</h1>
+    <p>DSA301 Project 4 · Part 3 · Sample hub routes from IST</p>
+    <span class="mantra">Shneiderman: Overview first → zoom &amp; filter → details on demand</span>
+  </header>
+
+  <div class="layout">
+    <aside class="filters">
+      <h2>Filter &amp; zoom</h2>
+      <label for="typeFilter">Route type</label>
+      <select id="typeFilter">
+        <option value="all">All routes</option>
+        <option value="intl">International</option>
+        <option value="dom">Domestic</option>
+      </select>
+
+      <label for="cityFilter">Destination city</label>
+      <select id="cityFilter">
+        <option value="all">All cities</option>
+      </select>
+
+      <label>Departure window (local)</label>
+      <input type="range" id="hourMin" min="0" max="23" value="0" />
+      <div class="range-row"><span id="hourMinLbl">00:00</span><span>to</span></div>
+      <input type="range" id="hourMax" min="0" max="23" value="23" />
+      <div class="range-row"><span></span><span id="hourMaxLbl">23:00</span></div>
+
+      <div class="btn-row">
+        <button type="button" class="primary" id="btnReset">Reset filters</button>
+        <button type="button" id="btnFit">Fit map view</button>
+      </div>
+
+      <h2 style="margin-top:1.25rem">Route list</h2>
+      <ul class="route-list" id="routeList"></ul>
+    </aside>
+
+    <main>
+      <section class="stats" aria-label="Overview">
+        <div class="stat"><strong id="statTotal">10</strong><span>Total routes</span></div>
+        <div class="stat"><strong id="statVisible">10</strong><span>Visible after filter</span></div>
+        <div class="stat"><strong id="statIntl">5</strong><span>International</span></div>
+        <div class="stat"><strong id="statDom">5</strong><span>Domestic</span></div>
+      </section>
+
+      <div class="panel">
+        <div class="panel-head">① Overview — network map (drag to pan, scroll to zoom)</div>
+        <div id="map"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">② Filtered schedule — departure timeline</div>
+        <div id="timeline"></div>
+      </div>
+    </main>
+
+    <aside class="detail">
+      <h2>③ Details on demand</h2>
+      <div id="detailPanel" class="detail-empty">
+        Click a route on the map, timeline, or list to see flight details.
+      </div>
+    </aside>
+  </div>
+
+  <footer class="note">
+    Data: sample THY timetable (Part 2). Map uses Plotly scattergeo · not for operational navigation.
+  </footer>
+
+  <script>
+    const CITIES = {
+      IST: { lat: 41.275, lon: 28.752, name: "Istanbul" },
+      LHR: { lat: 51.47, lon: -0.454, name: "London" },
+      FRA: { lat: 50.037, lon: 8.562, name: "Frankfurt" },
+      JFK: { lat: 40.641, lon: -73.778, name: "New York" },
+      DXB: { lat: 25.253, lon: 55.364, name: "Dubai" },
+      SIN: { lat: 1.364, lon: 103.991, name: "Singapore" },
+      ESB: { lat: 40.128, lon: 32.995, name: "Ankara" },
+      ADB: { lat: 38.292, lon: 27.157, name: "Izmir" },
+      AYT: { lat: 36.899, lon: 30.801, name: "Antalya" },
+      TZX: { lat: 40.995, lon: 39.79, name: "Trabzon" },
+      GZT: { lat: 36.947, lon: 37.479, name: "Gaziantep" },
+    };
+
+    const ROUTES = [
+      { id: "lhr", label: "IST–LHR", dest: "LHR", dep: "08:15", arr: "10:35", duration: "3h 20m", freq: "Daily", aircraft: "A321 / B789", kind: "intl" },
+      { id: "fra", label: "IST–FRA", dest: "FRA", dep: "07:00", arr: "09:15", duration: "3h 15m", freq: "Daily", aircraft: "A321", kind: "intl" },
+      { id: "jfk", label: "IST–JFK", dest: "JFK", dep: "13:30", arr: "17:45", duration: "11h 15m", freq: "Daily", aircraft: "B777", kind: "intl" },
+      { id: "dxb", label: "IST–DXB", dest: "DXB", dep: "02:10", arr: "07:25", duration: "4h 15m", freq: "2× daily", aircraft: "A321", kind: "intl" },
+      { id: "sin", label: "IST–SIN", dest: "SIN", dep: "01:35", arr: "17:20", duration: "10h 45m", freq: "Daily", aircraft: "B787", kind: "intl" },
+      { id: "esb", label: "IST–ESB", dest: "ESB", dep: "06:00", arr: "07:05", duration: "1h 05m", freq: "8× daily", aircraft: "A320", kind: "dom" },
+      { id: "adb", label: "IST–ADB", dest: "ADB", dep: "07:30", arr: "08:35", duration: "1h 05m", freq: "10× daily", aircraft: "A320 / A321", kind: "dom" },
+      { id: "ayt", label: "IST–AYT", dest: "AYT", dep: "09:15", arr: "10:25", duration: "1h 10m", freq: "12× daily", aircraft: "A320", kind: "dom" },
+      { id: "tzx", label: "IST–TZX", dest: "TZX", dep: "11:00", arr: "12:35", duration: "1h 35m", freq: "4× daily", aircraft: "A320", kind: "dom" },
+      { id: "gzt", label: "IST–GZT", dest: "GZT", dep: "14:20", arr: "16:05", duration: "1h 45m", freq: "3× daily", aircraft: "A320", kind: "dom" },
+    ];
+
+    const COLORS = { intl: "#1e5aa8", dom: "#d4880f", hub: "#c8102e" };
+
+    function parseHour(t) {
+      const [h, m] = t.split(":").map(Number);
+      return h + m / 60;
+    }
+
+    function padHour(h) {
+      const hh = Math.floor(h);
+      const mm = Math.round((h - hh) * 60);
+      return `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}`;
+    }
+
+    let filtered = [...ROUTES];
+    let selectedId = null;
+    let mapReady = false;
+    let timelineReady = false;
+
+    const citySelect = document.getElementById("cityFilter");
+    [...new Set(ROUTES.map((r) => r.dest))].sort().forEach((code) => {
+      const opt = document.createElement("option");
+      opt.value = code;
+      opt.textContent = `${code} — ${CITIES[code].name}`;
+      citySelect.appendChild(opt);
+    });
+
+    function getFilters() {
+      return {
+        type: document.getElementById("typeFilter").value,
+        city: citySelect.value,
+        hourMin: Number(document.getElementById("hourMin").value),
+        hourMax: Number(document.getElementById("hourMax").value),
+      };
+    }
+
+    function applyFilters() {
+      const f = getFilters();
+      const hMin = Math.min(f.hourMin, f.hourMax);
+      const hMax = Math.max(f.hourMin, f.hourMax);
+
+      filtered = ROUTES.filter((r) => {
+        if (f.type !== "all" && r.kind !== f.type) return false;
+        if (f.city !== "all" && r.dest !== f.city) return false;
+        const dep = parseHour(r.dep);
+        return dep >= hMin && dep <= hMax + 0.99;
+      });
+
+      document.getElementById("statVisible").textContent = filtered.length;
+      if (selectedId && !filtered.find((r) => r.id === selectedId)) {
+        selectedId = null;
+        showDetail(null);
+      }
+      renderRouteList();
+      drawMap();
+      drawTimeline();
+    }
+
+    function renderRouteList() {
+      const ul = document.getElementById("routeList");
+      ul.innerHTML = "";
+      filtered.forEach((r) => {
+        const li = document.createElement("li");
+        li.textContent = r.label;
+        li.className = r.id === selectedId ? "active" : "";
+        li.onclick = () => selectRoute(r.id);
+        ul.appendChild(li);
+      });
+    }
+
+    function selectRoute(id) {
+      selectedId = id;
+      showDetail(ROUTES.find((r) => r.id === id));
+      renderRouteList();
+      drawMap();
+      drawTimeline();
+    }
+
+    function showDetail(r) {
+      const panel = document.getElementById("detailPanel");
+      if (!r) {
+        panel.className = "detail-empty";
+        panel.innerHTML = "Click a route on the map, timeline, or list to see flight details.";
+        return;
+      }
+      const dest = CITIES[r.dest];
+      panel.className = "detail-card";
+      panel.innerHTML = `
+        <h3>${r.label}</h3>
+        <span class="badge ${r.kind}">${r.kind === "intl" ? "International" : "Domestic"}</span>
+        <dl>
+          <dt>Origin</dt><dd>IST — ${CITIES.IST.name}</dd>
+          <dt>Destination</dt><dd>${r.dest} — ${dest.name}</dd>
+          <dt>Departure (local)</dt><dd>${r.dep}</dd>
+          <dt>Arrival (local)</dt><dd>${r.arr}</dd>
+          <dt>Block time</dt><dd>${r.duration}</dd>
+          <dt>Frequency</dt><dd>${r.freq}</dd>
+          <dt>Aircraft</dt><dd>${r.aircraft}</dd>
+        </dl>
+      `;
+    }
+
+    function arcPoints(lat1, lon1, lat2, lon2, n = 48) {
+      const toRad = (d) => (d * Math.PI) / 180;
+      const toDeg = (r) => (r * 180) / Math.PI;
+      lat1 = toRad(lat1); lon1 = toRad(lon1);
+      lat2 = toRad(lat2); lon2 = toRad(lon2);
+      const d = 2 * Math.asin(Math.sqrt(
+        Math.sin((lat2 - lat1) / 2) ** 2 +
+        Math.cos(lat1) * Math.cos(lat2) * Math.sin((lon2 - lon1) / 2) ** 2
+      ));
+      if (d < 1e-9) return { lats: [toDeg(lat1)], lons: [toDeg(lon1)] };
+      const lats = [], lons = [];
+      for (let i = 0; i <= n; i++) {
+        const f = i / n;
+        const a = Math.sin((1 - f) * d) / Math.sin(d);
+        const b = Math.sin(f * d) / Math.sin(d);
+        const x = a * Math.cos(lat1) * Math.cos(lon1) + b * Math.cos(lat2) * Math.cos(lon2);
+        const y = a * Math.cos(lat1) * Math.sin(lon1) + b * Math.cos(lat2) * Math.sin(lon2);
+        const z = a * Math.sin(lat1) + b * Math.sin(lat2);
+        lats.push(toDeg(Math.atan2(z, Math.hypot(x, y))));
+        lons.push(toDeg(Math.atan2(y, x)));
+      }
+      return { lats, lons };
+    }
+
+    function buildMapTraces() {
+      const traces = [];
+      const ist = CITIES.IST;
+
+      filtered.forEach((r) => {
+        const dest = CITIES[r.dest];
+        const arc = arcPoints(ist.lat, ist.lon, dest.lat, dest.lon);
+        const col = COLORS[r.kind];
+        const width = r.id === selectedId ? 4 : 2;
+        const opacity = selectedId && r.id !== selectedId ? 0.25 : 0.85;
+
+        traces.push({
+          type: "scattergeo",
+          mode: "lines",
+          lat: arc.lats,
+          lon: arc.lons,
+          line: { color: col, width },
+          opacity,
+          hoverinfo: "skip",
+          showlegend: false,
+        });
+        traces.push({
+          type: "scattergeo",
+          mode: "markers+text",
+          lat: [dest.lat],
+          lon: [dest.lon],
+          text: [r.dest],
+          textposition: "top center",
+          marker: { size: r.id === selectedId ? 12 : 8, color: col },
+          name: r.label,
+          customdata: [[r.id]],
+          hovertemplate: `<b>${r.label}</b><br>Dep ${r.dep} · Arr ${r.arr}<extra></extra>`,
+          showlegend: false,
+        });
+      });
+
+      traces.push({
+        type: "scattergeo",
+        mode: "markers+text",
+        lat: [ist.lat],
+        lon: [ist.lon],
+        text: ["IST"],
+        textposition: "bottom center",
+        marker: { size: 14, color: COLORS.hub },
+        hovertemplate: "<b>IST Istanbul</b> (hub)<extra></extra>",
+        showlegend: false,
+      });
+      return traces;
+    }
+
+    const mapLayout = {
+      margin: { t: 8, b: 8, l: 8, r: 8 },
+      geo: {
+        projection: { type: "natural earth" },
+        showland: true,
+        landcolor: "#e8ecef",
+        showocean: true,
+        oceancolor: "#f7f9fb",
+        showcountries: true,
+        countrycolor: "#c5ccd3",
+        bgcolor: "#fafbfc",
+      },
+      paper_bgcolor: "#fafbfc",
+    };
+
+    function drawMap() {
+      const traces = buildMapTraces();
+      const el = document.getElementById("map");
+      if (!mapReady) {
+        Plotly.newPlot(el, traces, mapLayout, { responsive: true, displayModeBar: true });
+        el.on("plotly_click", (ev) => {
+          const pt = ev.points[0];
+          if (pt.customdata && pt.customdata[0]) selectRoute(pt.customdata[0][0]);
+        });
+        mapReady = true;
+      } else {
+        Plotly.react(el, traces, mapLayout);
+      }
+    }
+
+    function drawTimeline() {
+      const traces = filtered.map((r, i) => {
+        const dep = parseHour(r.dep);
+        let arr = parseHour(r.arr);
+        if (arr < dep) arr += 24;
+        const col = COLORS[r.kind];
+        return {
+          type: "scatter",
+          mode: "lines+markers",
+          x: [dep, arr],
+          y: [i, i],
+          line: { color: col, width: r.id === selectedId ? 6 : 4 },
+          marker: { size: r.id === selectedId ? 10 : 7, color: col },
+          customdata: [[r.id, r.id]],
+          hovertemplate: `<b>${r.label}</b><br>${r.dep} → ${r.arr}<br>${r.duration}<extra></extra>`,
+          showlegend: false,
+        };
+      });
+
+      const layout = {
+        margin: { t: 20, b: 48, l: 88, r: 16 },
+        xaxis: { title: "Local time (hours)", range: [0, 24], dtick: 2, gridcolor: "#e8eaed" },
+        yaxis: {
+          tickvals: filtered.map((_, i) => i),
+          ticktext: filtered.map((r) => r.label),
+          autorange: "reversed",
+        },
+        paper_bgcolor: "#fff",
+        plot_bgcolor: "#fff",
+        height: Math.max(220, filtered.length * 36 + 80),
+      };
+
+      const el = document.getElementById("timeline");
+      if (!timelineReady) {
+        Plotly.newPlot(el, traces, layout, { responsive: true, displayModeBar: false });
+        el.on("plotly_click", (ev) => {
+          const id = ev.points[0].customdata[0][0];
+          if (id) selectRoute(id);
+        });
+        timelineReady = true;
+      } else {
+        Plotly.react(el, traces, layout);
+      }
+    }
+
+    function syncHourLabels() {
+      document.getElementById("hourMinLbl").textContent = padHour(Number(document.getElementById("hourMin").value));
+      document.getElementById("hourMaxLbl").textContent = padHour(Number(document.getElementById("hourMax").value));
+    }
+
+    document.getElementById("typeFilter").onchange = applyFilters;
+    citySelect.onchange = applyFilters;
+    document.getElementById("hourMin").oninput = () => { syncHourLabels(); applyFilters(); };
+    document.getElementById("hourMax").oninput = () => { syncHourLabels(); applyFilters(); };
+    document.getElementById("btnReset").onclick = () => {
+      document.getElementById("typeFilter").value = "all";
+      citySelect.value = "all";
+      document.getElementById("hourMin").value = 0;
+      document.getElementById("hourMax").value = 23;
+      syncHourLabels();
+      selectedId = null;
+      showDetail(null);
+      applyFilters();
+    };
+    document.getElementById("btnFit").onclick = () => {
+      Plotly.relayout("map", { "geo.projection.scale": 1, "geo.center": { lon: 45, lat: 35 } });
+    };
+
+    syncHourLabels();
+    applyFilters();
+  </script>
+</body>
+</html>

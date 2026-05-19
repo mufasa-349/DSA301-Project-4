@@ -97,6 +97,12 @@ INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/array.sty
+INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./project4.aux
@@ -120,46 +126,66 @@ INPUT ./project4.out
 INPUT ./project4.out
 OUTPUT project4.out
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ./images/Singapore Airlines - December 1- 1972-route.png
+INPUT ./images/Singapore Airlines - December 1- 1972-route.png
+INPUT ./images/Singapore Airlines - December 1- 1972-route.png
+INPUT ./images/Singapore Airlines - December 1- 1972-route.png
+INPUT ./images/Singapore Airlines - December 1- 1972-timetable.png
+INPUT ./images/Singapore Airlines - December 1- 1972-timetable.png
+INPUT ./images/Singapore Airlines - December 1- 1972-timetable.png
+INPUT ./images/Singapore Airlines - December 1- 1972-timetable.png
+INPUT /usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT ./images/lufthansa April 1 1968-route.png
+INPUT ./images/lufthansa April 1 1968-route.png
+INPUT ./images/lufthansa April 1 1968-route.png
+INPUT ./images/lufthansa April 1 1968-route.png
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT ./images/lufthansa April 1 1968-timetable.png
+INPUT ./images/lufthansa April 1 1968-timetable.png
+INPUT ./images/lufthansa April 1 1968-timetable.png
+INPUT ./images/lufthansa April 1 1968-timetable.png
+INPUT ./images/tahi airways july 31 1960-timetable.png
+INPUT ./images/tahi airways july 31 1960-timetable.png
+INPUT ./images/tahi airways july 31 1960-timetable.png
+INPUT ./images/tahi airways july 31 1960-timetable.png
+INPUT ./images/PanAM August 1, 1963-timetable.png
+INPUT ./images/PanAM August 1, 1963-timetable.png
+INPUT ./images/PanAM August 1, 1963-timetable.png
+INPUT ./images/PanAM August 1, 1963-timetable.png
+INPUT ./images/map-based-panAM.png
+INPUT ./images/map-based-panAM.png
+INPUT ./images/map-based-panAM.png
+INPUT ./images/map-based-panAM.png
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm
-INPUT ./images/PanAM August 1, 1963-timetable.png
-INPUT ./images/PanAM August 1, 1963-timetable.png
-INPUT ./images/PanAM August 1, 1963-timetable.png
-INPUT ./images/PanAM August 1, 1963-timetable.png
-INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
-INPUT ./images/Singapore Airlines - December 1- 1972-route.png
-INPUT ./images/Singapore Airlines - December 1- 1972-route.png
-INPUT ./images/Singapore Airlines - December 1- 1972-route.png
-INPUT ./images/Singapore Airlines - December 1- 1972-route.png
-INPUT ./images/Singapore Airlines - December 1- 1972-timetable.png
-INPUT ./images/Singapore Airlines - December 1- 1972-timetable.png
-INPUT ./images/Singapore Airlines - December 1- 1972-timetable.png
-INPUT ./images/Singapore Airlines - December 1- 1972-timetable.png
-INPUT ./images/lufthansa April 1 1968-route.png
-INPUT ./images/lufthansa April 1 1968-route.png
-INPUT ./images/lufthansa April 1 1968-route.png
-INPUT ./images/lufthansa April 1 1968-route.png
-INPUT ./images/lufthansa April 1 1968-timetable.png
-INPUT ./images/lufthansa April 1 1968-timetable.png
-INPUT ./images/lufthansa April 1 1968-timetable.png
-INPUT ./images/lufthansa April 1 1968-timetable.png
-INPUT ./images/tahi airways july 31 1960-timetable.png
-INPUT ./images/tahi airways july 31 1960-timetable.png
-INPUT ./images/tahi airways july 31 1960-timetable.png
-INPUT ./images/tahi airways july 31 1960-timetable.png
+INPUT ./images/thy-design-a.png
+INPUT ./images/thy-design-a.png
+INPUT ./images/thy-design-a.png
+INPUT ./images/thy-design-a.png
+INPUT ./images/thy-design-b.png
+INPUT ./images/thy-design-b.png
+INPUT ./images/thy-design-b.png
+INPUT ./images/thy-design-b.png
+INPUT ./images/dashboard2.png
+INPUT ./images/dashboard2.png
+INPUT ./images/dashboard2.png
+INPUT ./images/dashboard2.png
 INPUT project4.aux
 INPUT ./project4.out
 INPUT ./project4.out
@@ -167,5 +193,7 @@ INPUT /Users/mustafabozyel/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/j
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+INPUT /usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
