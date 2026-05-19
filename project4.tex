@@ -1,0 +1,183 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\graphicspath{{images/}}
+
+\title{DSA301 Project 4:\\Vintage Airline Timetables as Information Design}
+\author{}
+\date{}
+
+\newcommand{\strengths}{\paragraph{Design strengths.}}
+\newcommand{\weaknesses}{\paragraph{Design weaknesses.}}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This document analyzes historical airline timetables as dense, print-era data visualizations. For each carrier, we examine how layout, color, typography, and symbolic encoding support (or hinder) reading schedules across cities, time zones, and connecting flights. Where a route map accompanies the timetable, the map is included for geographic context; the design critique focuses on the \textbf{timetable} pages.
+
+For every example we identify:
+\begin{itemize}[noitemsep]
+  \item \textbf{Design strengths} --- clarity, visual hierarchy, and encoding choices that aid comprehension.
+  \item \textbf{Design weaknesses} --- clutter, ambiguity, and cognitive load that make the schedule harder to use.
+\end{itemize}
+
+%==============================================================================
+\section{Pan American World Airways --- August 1--31, 1963}
+%==============================================================================
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{{PanAM August 1, 1963-timetable.png}}
+  \caption{Pan Am round-the-world services timetable (August 1--31, 1963). Pages 6--7: eastbound (Table 1) and westbound (Table 2).}
+  \label{fig:panam-timetable}
+\end{figure}
+
+\subsection{Timetable critique}
+
+\strengths
+\begin{itemize}
+  \item \textbf{Hierarchy:} A saturated blue header bar, bold \emph{EASTBOUND}/\emph{WESTBOUND} labels, and mirrored page numbers establish direction and brand before the reader enters the grid. The repeated instruction \emph{Read Down} encodes the primary scanning axis explicitly.
+  \item \textbf{Encoding consistency:} Rows follow geography (cities with Ar/Lv sub-rows); columns group by day, class (FY), flight number, and aircraft type (JET highlighted in blue). Dashes (---) consistently mark non-stops; vertical arrows show continuation across flight numbers.
+  \item \textbf{Color as emphasis:} Blue is reserved for structural chrome (header, \emph{JET}, some flight numbers), so operational times remain black-on-cream while key categorical fields pop without a full color legend.
+  \item \textbf{Reference density:} Footnotes define FY (President Special / Rainbow), aircraft types (Boeing 707 / DC-8), and class meanings---supporting a self-contained spread for frequent travelers.
+\end{itemize}
+
+\weaknesses
+\begin{itemize}
+  \item \textbf{Clutter and density:} Two full round-the-world tables on one spread, with small type and tight leading, create a wall of numbers. Tracking one city row across three flight columns per day demands a ruler or sustained focus.
+  \item \textbf{Cognitive load:} Readers must reconcile GMT offsets, arrival vs.\ departure rows, day-of-week headers, and mid-grid \emph{MONDAY}/\emph{TUESDAY} labels for date-line crossings---four mental models at once.
+  \item \textbf{Ambiguity of connections:} Multiple flight numbers (e.g., 114, 2, 72) under a single day imply a stitched journey; arrows help but do not replace prior knowledge of how Pan Am sold ``round the world'' products.
+  \item \textbf{Symbol noise:} Hooked and vertical arrows add graphical motion but increase scan paths; parenthetical city notes (e.g., Fiumicino, West Coast connections) break horizontal rhythm.
+\end{itemize}
+
+%==============================================================================
+\section{Singapore Airlines --- December 1, 1972}
+%==============================================================================
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\textwidth]{{Singapore Airlines - December 1- 1972-route.png}}
+  \caption{Singapore Airlines international route map (December 1972 timetable). Included for network context; critique below addresses the timetable.}
+  \label{fig:sia-route}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{{Singapore Airlines - December 1- 1972-timetable.png}}
+  \caption{Singapore Airlines international flights (December 1972). Pages 24--25: northbound (Table 1) and southbound (Table 2).}
+  \label{fig:sia-timetable}
+\end{figure}
+
+\subsection{Route map}
+
+The route map uses a high-contrast \textbf{yellow field}, \textbf{olive landmass silhouettes}, and \textbf{black} nodes and edges---a strong mid-century brand palette. Singapore reads as a hub through line density (starburst). Strengths include minimalist geography (topology over borders) and immediate legibility of the title hierarchy. Weaknesses include overlapping arcs in Southeast Asia, unclear distinction between direct and multi-stop services in Europe, and abstract coastlines that offer little orientation beyond city labels.
+
+\subsection{Timetable critique}
+
+\strengths
+\begin{itemize}
+  \item \textbf{Encoding of flight paths:} Each service is a \textbf{white vertical bar} on a yellow ground---an unusually effective ``small multiple'' within one table: the bar is the flight, and times sit on its endpoints and stops.
+  \item \textbf{Hierarchy:} Bold \emph{International flights}, split \emph{NORTHBOUND}/\emph{SOUTHBOUND}, and per-column headers (days, SQ number, aircraft, FY class) guide a top-down search before local reading.
+  \item \textbf{Compact symbology:} Meal codes (B, C, D, L, M, R) and downward arrows encode ancillary facts without extra columns; \# marks government-approval caveats inline.
+  \item \textbf{Time-zone column:} GMT offsets beside cities support mental conversion; footnotes clarify local times, DST changes (1972), and traffic-right restrictions between city pairs.
+\end{itemize}
+
+\weaknesses
+\begin{itemize}
+  \item \textbf{Cognitive load:} Yellow-on-black at high density fatigues the eye; users must scan horizontally for the correct flight/day, then vertically along a bar---two demanding axes with few full-width grid lines.
+  \item \textbf{Clutter at scale:} Many parallel bars on one page resemble a bar chart without margins; adjacent columns compete, especially where bars are short (regional hops).
+  \item \textbf{Ambiguity of duration:} All times are local; GMT offsets help experts but do not show block time or ground time between stops without manual calculation.
+  \item \textbf{Small secondary marks:} Meal letters and approval symbols are easy to miss at print size, increasing the risk of misreading service level or operability.
+\end{itemize}
+
+%==============================================================================
+\section{Lufthansa --- April 1--27, 1968}
+%==============================================================================
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{{lufthansa April 1 1968-route.png}}
+  \caption{Lufthansa world route network (\emph{Welt-Streckennetz}, April 1968). Solid lines: jet routes; dotted: connecting routes. City numbers reference timetable tables.}
+  \label{fig:lufthansa-route}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{{lufthansa April 1 1968-timetable.png}}
+  \caption{Lufthansa Europe--North America timetable (April 1--27, 1968). Outbound (left) and inbound (right) on pale blue stock.}
+  \label{fig:lufthansa-timetable}
+\end{figure}
+
+\subsection{Route map}
+
+The map is \textbf{monochrome}: black routes and labels on light cyan paper. Solid vs.\ dotted line styles distinguish jet routes from connecting services; numbered cities link to timetable tables---a strong cross-reference encoding. Weaknesses mirror other hub maps: line spaghetti in Europe and the Middle East, uniform line weight (no frequency or distance channel), and crowded numeric labels in dense regions.
+
+\subsection{Timetable critique}
+
+\strengths
+\begin{itemize}
+  \item \textbf{Grid clarity:} Strict rows (cities) and columns (individual flights) with bold city names support tracing one LH/AF service through many stops. Feeder sections (German cities to hubs) are separated from transatlantic blocks.
+  \item \textbf{Efficient encoding:} Stylized aircraft icons, F/Y class tags, and \textbf{circled weekday numbers} (1--7) compress metadata into column headers without prose.
+  \item \textbf{Hierarchy:} Trilingual section title (\emph{Nordamerika / North America / Amérique du Nord}) and outbound/inbound page pairing mirror mental models of origin vs.\ return planning.
+  \item \textbf{Footnote system:} Geometric symbols in cells point to detailed notes---a standard airline pattern that keeps the grid visually regular while allowing exceptions.
+\end{itemize}
+
+\weaknesses
+\begin{itemize}
+  \item \textbf{Clutter:} Dozens of columns across two pages produce a busy field; feeder flights at top/bottom require long vertical eye travel to connect with main oceanic services.
+  \item \textbf{Cognitive load:} Symbol-heavy cells force constant lookup to footnotes---high working-memory cost for occasional travelers.
+  \item \textbf{Readability:} Stacked hour/minute in single cells and small type on tinted paper lower contrast compared with black on white; misreads of 13:30 vs.\ 1:30 are more likely.
+  \item \textbf{Ambiguity of through-service:} Vertical arrows suggest continuation but do not always distinguish stop vs.\ technical stop vs.\ change of gauge without reading notes.
+\end{itemize}
+
+%==============================================================================
+\section{Thai Airways International --- July 31, 1960}
+%==============================================================================
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{{tahi airways july 31 1960-timetable.png}}
+  \caption{Thai Airways International timetable (effective July 31, 1960). Tokyo--Calcutta corridor and regional Bangkok--Phnom Penh--Saigon service.}
+  \label{fig:thai-timetable}
+\end{figure}
+
+\subsection{Timetable critique}
+
+\strengths
+\begin{itemize}
+  \item \textbf{Hierarchy:} Dark blue header bars with white route strings segment the spread into outbound Tokyo--Calcutta, inbound return, and a smaller regional table---clear chunks before detail.
+  \item \textbf{Eye-tracking aids:} Dotted horizontal guides from city names on the margins into the data columns reduce row-tracking error on wide tables---a thoughtful affordance for print.
+  \item \textbf{Symbol encoding:} F/T class squares, meal (cutlery) icons, and airplane glyphs convey class and service without extra text; 24-hour times with spaced digits match international norms.
+  \item \textbf{Symmetry:} Mirrored city labels on left and right of the main grids support reading from either page edge in a bound booklet.
+\end{itemize}
+
+\weaknesses
+\begin{itemize}
+  \item \textbf{Ambiguity:} The header \emph{Singapore/Rangoon} splits one logical corridor---some columns stop at Singapore, others at Rangoon, marked by dots vs.\ times; easy to misread without careful column-by-column checking.
+  \item \textbf{Missing local legend:} X marks, arrow variants, and icon meanings on this spread are not defined here---users must find a global legend elsewhere in the booklet.
+  \item \textbf{Clutter in regional table:} The Bangkok--Phnom Penh--Saigon \emph{v.v.} layout packs bidirectional flows into one grid, with dense arrows and times harder to parse than the main Tokyo--Calcutta blocks.
+  \item \textbf{Cognitive load:} Promotional DC-6B art and SAS partnership copy compete with schedule data for attention; the center gutter where two large tables meet is especially visually noisy.
+\end{itemize}
+
+%==============================================================================
+\section{Comparative observations}
+%==============================================================================
+
+Across these examples, recurring \textbf{strengths} include geographic row ordering, consistent abbreviations (Ar/Lv, A/D, FY), and deliberate use of color or figure--ground contrast (Pan Am blue, SIA yellow/white bars, Lufthansa cyan stock, Thai blue headers) to separate structure from data.
+
+Recurring \textbf{weaknesses} include extreme information density, reliance on expert readers, symbol systems that outsource meaning to footnotes, and connection logic (multi-flight journeys, date-line days, split city pairs) that remains implicit in the grid.
+
+Modern digital timetable design largely removes these pains through filtering, time-zone normalization, and interactive path highlighting---capabilities that these print-era tables approximated with bars, arrows, and color at the cost of higher cognitive load.
+
+\end{document}
