@@ -8,6 +8,32 @@
 \usepackage{hyperref}
 \usepackage{caption}
 \usepackage{subcaption}
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{center}
+    {\LARGE\bfseries\@title\par}
+    \vspace{0.35em}
+    {\large\@author\par}
+    \vspace{0.2em}
+    {\normalsize\@date\par}
+  \end{center}
+  \vspace{0.5em}
+}
+\makeatother
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-2.0ex \@plus -0.4ex \@minus -.2ex}%
+  {0.65ex \@plus .15ex}%
+  {\normalfont\Large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-1.35ex \@plus -0.35ex \@minus -.15ex}%
+  {0.5ex \@plus .12ex}%
+  {\normalfont\large\bfseries}}
+\makeatother
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 3pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\captionsetup{skip=5pt, font=small}
 
 \graphicspath{{images/}}
 
@@ -21,10 +47,11 @@
 \begin{document}
 
 \maketitle
+\vspace{-1.25em}
 
 \section{Introduction}
 
-This document has two parts. \textbf{Part~1A} analyzes historical airline timetables as dense, print-era data visualizations. \textbf{Part~1B} redesigns the Pan Am August 1963 eastbound round-the-world timetable as a map-based sketch, justifying encoding and layout choices and documenting where geographic proximity fails.
+\noindent This document has two parts. \textbf{Part~1A} analyzes historical airline timetables as dense, print-era data visualizations. \textbf{Part~1B} redesigns the Pan Am August 1963 eastbound round-the-world timetable as a map-based sketch, justifying encoding and layout choices and documenting where geographic proximity fails.
 
 %==============================================================================
 \section{Part 1A: Historical Timetable Design Critique}
@@ -38,7 +65,7 @@ For each carrier we identify design strengths (clarity, hierarchy, encoding) and
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.92\textwidth]{{Singapore Airlines - December 1- 1972-route.png}}
+  \includegraphics[width=0.58\textwidth]{{Singapore Airlines - December 1- 1972-route.png}}
   \caption{Singapore Airlines international route map (December 1972 timetable). Included for network context; critique below addresses the timetable.}
   \label{fig:sia-route}
 \end{figure}

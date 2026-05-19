@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.24)  19 MAY 2026 18:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.24)  19 MAY 2026 19:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -263,24 +263,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./project4.aux)
 \openout1 = `project4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -340,102 +340,94 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 21.
+Package hyperref Info: Link coloring OFF on input line 47.
  (./project4.out) (./project4.out)
 \@outlinefile=\write3
 \openout3 = `project4.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 24.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 24.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 24.
 <images/Singapore Airlines - December 1- 1972-route.png, id=84, 876.27374pt x 5
 41.02126pt>
 File: images/Singapore Airlines - December 1- 1972-route.png Graphic file (type
  png)
 <use images/Singapore Airlines - December 1- 1972-route.png>
 Package pdftex.def Info: images/Singapore Airlines - December 1- 1972-route.png
-  used on input line 41.
-(pdftex.def)             Requested size: 432.17375pt x 266.8281pt.
-
-
-[1
-
-{/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<images/Singapore Airlines - December 1- 1972-timetable.png, id=95, 882.29625pt
+  used on input line 68.
+(pdftex.def)             Requested size: 272.45877pt x 168.21843pt.
+<images/Singapore Airlines - December 1- 1972-timetable.png, id=86, 882.29625pt
  x 532.99126pt>
 File: images/Singapore Airlines - December 1- 1972-timetable.png Graphic file (
 type png)
 <use images/Singapore Airlines - December 1- 1972-timetable.png>
 Package pdftex.def Info: images/Singapore Airlines - December 1- 1972-timetable
-.png  used on input line 48.
+.png  used on input line 75.
 (pdftex.def)             Requested size: 469.75502pt x 283.77713pt.
 
 
-[2 <./images/Singapore Airlines - December 1- 1972-route.png>]
+[1
 
-[3 <./images/Singapore Airlines - December 1- 1972-timetable.png>]
-<images/lufthansa April 1 1968-route.png, id=112, 1401.235pt x 679.53876pt>
+{/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./
+images/Singapore Airlines - December 1- 1972-route.png>]
+
+[2 <./images/Singapore Airlines - December 1- 1972-timetable.png>]
+<images/lufthansa April 1 1968-route.png, id=106, 1401.235pt x 679.53876pt>
 File: images/lufthansa April 1 1968-route.png Graphic file (type png)
 <use images/lufthansa April 1 1968-route.png>
 Package pdftex.def Info: images/lufthansa April 1 1968-route.png  used on input
- line 81.
+ line 108.
 (pdftex.def)             Requested size: 469.75502pt x 227.80502pt.
-<images/lufthansa April 1 1968-timetable.png, id=113, 1412.27625pt x 664.4825pt
+<images/lufthansa April 1 1968-timetable.png, id=107, 1412.27625pt x 664.4825pt
 >
 File: images/lufthansa April 1 1968-timetable.png Graphic file (type png)
 <use images/lufthansa April 1 1968-timetable.png>
 Package pdftex.def Info: images/lufthansa April 1 1968-timetable.png  used on i
-nput line 88.
+nput line 115.
 (pdftex.def)             Requested size: 469.75502pt x 221.02383pt.
 
 
-[4 <./images/lufthansa April 1 1968-route.png>]
-Overfull \hbox (3.72882pt too wide) in paragraph at lines 109--110
+[3 <./images/lufthansa April 1 1968-route.png>]
+Overfull \hbox (3.72882pt too wide) in paragraph at lines 136--137
 []\OT1/cmr/bx/n/10.95 Clutter: \OT1/cmr/m/n/10.95 Dozens of columns across two 
 pages pro-duce a busy field; feeder flights at top/bottom
  []
 
 
 
-[5 <./images/lufthansa April 1 1968-timetable.png>]
-<images/tahi airways july 31 1960-timetable.png, id=132, 1125.20375pt x 584.182
+[4 <./images/lufthansa April 1 1968-timetable.png>]
+<images/tahi airways july 31 1960-timetable.png, id=123, 1125.20375pt x 584.182
 5pt>
 File: images/tahi airways july 31 1960-timetable.png Graphic file (type png)
 <use images/tahi airways july 31 1960-timetable.png>
 Package pdftex.def Info: images/tahi airways july 31 1960-timetable.png  used o
-n input line 121.
+n input line 148.
 (pdftex.def)             Requested size: 469.75502pt x 243.88417pt.
 
 
-[6 <./images/tahi airways july 31 1960-timetable.png>]
-<images/PanAM August 1, 1963-timetable.png, id=142, 1222.5675pt x 684.5575pt>
+[5 <./images/tahi airways july 31 1960-timetable.png>]
+<images/PanAM August 1, 1963-timetable.png, id=132, 1222.5675pt x 684.5575pt>
 File: images/PanAM August 1, 1963-timetable.png Graphic file (type png)
 <use images/PanAM August 1, 1963-timetable.png>
 Package pdftex.def Info: images/PanAM August 1, 1963-timetable.png  used on inp
-ut line 150.
+ut line 177.
 (pdftex.def)             Requested size: 469.75502pt x 263.02795pt.
 
 
-[7 <./images/PanAM August 1, 1963-timetable.png>]
-<images/map-based-panAM.png, id=155, 859.21pt x 605.26125pt>
+[6 <./images/PanAM August 1, 1963-timetable.png>]
+<images/map-based-panAM.png, id=141, 859.21pt x 605.26125pt>
 File: images/map-based-panAM.png Graphic file (type png)
 <use images/map-based-panAM.png>
-Package pdftex.def Info: images/map-based-panAM.png  used on input line 181.
+Package pdftex.def Info: images/map-based-panAM.png  used on input line 208.
 (pdftex.def)             Requested size: 413.3867pt x 291.20552pt.
 
 
-[8]
+[7]
 
-[9 <./images/map-based-panAM.png>]
+[8 <./images/map-based-panAM.png>]
 
-[10]
+[9]
 
-[11] (./project4.aux)
+[10] (./project4.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -444,70 +436,27 @@ L3 programming layer <2025-01-18>
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-
-Package rerunfilecheck Warning: File `project4.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `project4.out':
-(rerunfilecheck)             Before: EA0ACB99B642FB764A6F09F826E79349;4035
-(rerunfilecheck)             After:  643B1B56D24F6A3B83B9E669DE5F10A6;4033.
+Package rerunfilecheck Info: File `project4.out' has not changed.
+(rerunfilecheck)             Checksum: 643B1B56D24F6A3B83B9E669DE5F10A6;4033.
  ) 
 Here is how much of TeX's memory you used:
- 10923 strings out of 474662
- 179112 string characters out of 5751108
- 579883 words of memory out of 5000000
- 33807 multiletter control sequences out of 15000+600000
- 564079 words of font info for 53 fonts, out of 8000000 for 9000
+ 10895 strings out of 474662
+ 178758 string characters out of 5751108
+ 580932 words of memory out of 5000000
+ 33796 multiletter control sequences out of 15000+600000
+ 562294 words of font info for 47 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,6n,79p,784b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{figure.caption.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.12} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.11} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.10} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.9} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.8} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.7} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.6} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.3.5} has been referenced but does not ex
-ist, replaced by a fixed one
-
- </Users/mustafabozyel/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jkna
-ppen/ec/tcrm1095.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025basic/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on project4.pdf (11 pages, 25496563 bytes).
+ 75i,6n,79p,784b,550s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </Users/mustafabozyel/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jk
+nappen/ec/tcrm1095.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025basic/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on project4.pdf (10 pages, 25483414 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
- 61 named destinations out of 1000 (max. 500000)
+ 209 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
+ 51 named destinations out of 1000 (max. 500000)
  196 words of extra memory for PDF output out of 10000 (max. 10000000)
 
